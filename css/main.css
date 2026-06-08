@@ -1,0 +1,114 @@
+*,
+*:after,
+*:before 						{ -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+
+.row							{ clear: both; margin-left: -10px; margin-right: -10px; overflow: auto; }
+.row:after						{ clear: both; content: " "; display: block;}
+.span                           { float: left; padding: 0px 10px; display: block;}
+
+html, body						{ background: #222; font-family: 'Open Sans', 'Trebuchet MS', Arial; font-weight: 400; margin: 0; padding: 0;  }
+body							{  font-size: 100%; line-height: 2.4em; }
+
+a img							{ border: none; }
+
+header							{ z-index: 2; display: block; padding: 2.3% 0 1.6% 0; background: #edece6; border-bottom: 1px solid #ddd; }
+
+header h1						{ text-transform: uppercase; letter-spacing: -2px; font-weight: 800; margin: 0 0 0 -2px; padding: 0; color: #444; font-size: 2.2em; line-height: 1em;  }
+header h1 a						{ color: #444; text-decoration: none; }
+header p.tagline				{ color: #575757; font-size: 1.2em; line-height: 1.4em; margin: 0; padding: 2% 0 0.7% 0;}
+header p.tagline a				{ color: #9f9a8a; text-decoration: none; border-bottom: 1px dotted #cdcac2; font-weight: 600; }
+header p.tagline strong			{ font-weight: 600; }
+header .social					{ width: auto; float: right;  }
+header .social a				{ opacity: 0.75; display: inline-block; padding: 0; margin: 0; width: 32px; height: 32px; background-size: 32px 32px; }
+
+header .social a:hover			{ opacity: 1; }
+header .facebook 				{ background: url('../images/icons/facebook.png') no-repeat; }
+header .flickr 					{ background: url('../images/icons/flickr.png') no-repeat; }
+header .linkedin 				{ background: url('../images/icons/linkedin.png') no-repeat; }
+header .twitter 				{ background: url('../images/icons/twitter.png') no-repeat; }
+header .instagram				{ background: url('../images/icons/instagram.png') no-repeat; }
+header .email 					{ background: url('../images/icons/email.png') no-repeat; }
+
+figure							{ margin: 0; padding: 0; display: block;}
+figure.photo					{ padding-top: 4%; }
+figure.inline-left				{ width: 50%; padding-right: 2%; padding-top: 9px; float: left; }
+figure.inline-right				{ width: 50%; padding-left: 2%; padding-top: 9px; float: right; }
+figure img						{ width: 100%; margin: 0; padding: 0; display: block; }
+figure figcaption				{ font-size: 0.6em; font-style: italic; color: #333; background: #F7F7F7; display: block; border: 1px solid #eee; padding: 0 10px; }
+
+#image-gallery a                { width: 33.33333333333%; margin: 10px 0; }
+#image-gallery a img            { height: auto; max-width: 100%; overflow: hidden; display: block;}
+#image-gallery .row				{ padding: 10px 0; }
+#image-gallery div a			{ position: relative; }
+#image-gallery div a span.price	{ position: absolute; top: 10px; right: 20px; color: #fff; background: #000; opacity: 0.5; padding: 2px 6px; }
+#image-gallery div a span.info  { display: none;}
+
+div.content						{ display: block; margin: 0; padding: 0; font-size: 1.6em; color: #333; background: #232323; }
+div.content h2					{ font-weight: 700; color: #444; margin: 0; padding: 28px 0 10px 0; font-size: 1.4em; }
+div.content h3					{ font-weight: 700; color: #333; margin: 0; padding: 0 0 6px 0; font-size: 1.2em; }
+div.content h4					{ font-weight: 700; color: #333; margin: 0; padding: 0 0 6px 0; font-size: 1.1em; }
+div.content p					{ clear: both; margin: 0; padding: 20px 0 0 0; }
+div.content a					{ color: #575757; font-weight: bold; } 
+
+a.more							{ font-size: 0.9em; display: block; clear: both; text-align: right; color: #888; padding: 3% 0 5% 0; text-transform: uppercase; }
+
+footer							{ text-transform: uppercase; font-size: 0.6em; color: #eee; background: #222; display: block; width: 100%; clear: both; text-align: center; font-weight: 300; }
+footer p						{ padding: 4%; margin: 0;  }
+footer a						{ text-decoration: none; color: #888; }
+
+div.center-align 				{ clear:both; margin: 0 auto; max-width: 924px; padding: 0 10px; }
+div.center-align-large 			{ clear:both; margin: 0 auto; max-width: 1200px; padding: 0 10px; }
+
+
+p.buy							{ clear: both; width: 80%; font-size: 0.8em; margin: 0 auto !important; text-align: center; padding: 20px 0 !important; }
+
+.titanic						{ float: none; }
+
+.content-footer                 { background: #ddd; padding: 16px;}
+.content-footer p               { padding: 0 10%;  text-align: center; }
+.content-footer a               { color: #000; font-weight: bold;}
+
+.block-link						{ font-size: 2em; font-weight: 300; background: #444; color: #FFF; display: block; padding: 50px; }
+
+.wide-link 						{ font-size: 1.2em; font-weight: 300; background: #444; color: #FFF; display: block; padding: 30px; margin: 16px 0; }
+
+div.large-image					{ width: 100%;}
+div.large-image img				{ max-width: 100%; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) 
+{
+	header .facebook 				{ background: url('../images/icons/facebook-64.png') no-repeat; }
+	header .flickr 					{ background: url('../images/icons/flickr-64.png') no-repeat; }
+	header .linkedin 				{ background: url('../images/icons/linkedin-64.png') no-repeat; }
+	header .twitter 				{ background: url('../images/icons/twitter-64.png') no-repeat; }
+	header .instagram 				{ background: url('../images/icons/instagram-64.png') no-repeat; }
+    header .email 					{ background: url('../images/icons/email-64.png') no-repeat; }
+}
+
+@media screen and (min-width: 1100px) {
+	figure.photo					{ float: left; width: 48%; }
+	figure.photo:nth-child(odd)		{ margin-right: 4%; }
+	header p.tagline				{ font-size: 1.8em; line-height: 1.5em; }
+	
+}
+
+/* make sure the gutters between images are the same as the side gutters */
+@media screen and (max-width: 934px) {
+	.row	{  margin-left: 0; margin-right:0; }
+}
+
+@media screen and (max-width: 640px) {
+	header h1						{ font-size: 1.6em;  }
+	header .social					{ padding: 3% 0 1% 0; float: none; }
+	section.content 				{ font-size: 1em; line-height: 1.6em; }
+	figure.inline-left,
+	figure.inline-right				{ width: 100%; float: none; padding-top: 0; }
+    #image-gallery a                { width:50%; }
+    div.center-align-large h1		{ padding: 0 0;}
+
+}
+
+@media screen and (max-width: 400px) {
+	footer							{ line-height: 2.2em; font-size: 0.5em; }
+    #image-gallery a                { width:100%; }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl" xml:lang="nl">
+<head>
+    <script language="javascript" src="p5.js"></script>
+
+    <style type="text/css">
+        body {
+            color: #2a3d6c;
+        }
+
+        #heading {
+            padding-top: 10px;
+            width: 1100px;
+            margin-left: 120px;
+            font-family: "Comic Sans MS", "Comic Sans", Arial;
+            height: 120px;
+        }
+
+        #heading h1 {
+            font-size: 48px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #heading h2 {
+            font-size: 32px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #heading img {
+            float: right;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function generateRandomNumber() {
+            return Math.floor(random(20)) + 1;
+        }
+
+        function randomNumber(excludeNumbers) {
+            randNum = generateRandomNumber();
+
+            while (excludeNumbers.indexOf(randNum) !== -1) {
+                randNum = generateRandomNumber();
+            }
+
+            return randNum;
+        }
+
+        function setup() {
+
+            distance = 110;
+
+            cnv = createCanvas(12 * distance, 12 * distance);
+
+            randomNumbers = [];
+
+            i = 0;
+
+            for (y = distance; y < width; y += distance) {
+                for (x = distance; x < width; x += distance) {
+                    i++;
+
+                    excludeList = [];
+                    if (i > 1) {
+                        excludeList.push(randomNumbers[i - 1]);
+                    }
+                    if (i > 10) {
+                        excludeList.push(randomNumbers[i - 10]);
+                    }
+
+                    randomNumbers[i] = randomNumber(excludeList);
+                }
+            }
+        }
+
+        function draw() {
+
+            background(255);
+            r = 24;
+            noStroke();
+
+            var i = 1;
+            var offsetX = 31;
+            var offsetY = 36;
+
+            textSize(36);
+            strokeWeight(3);
+            stroke(220);
+
+            textAlign(CENTER);
+
+            for (y = distance; y < width; y += distance) {
+                line(distance, y, 11 * distance, y);
+            }
+
+            for (x = distance; x < width; x += distance) {
+                line(x, distance, x, 11 * distance);
+            }
+
+            for (y = distance; y < width; y += distance) {
+                for (x = distance; x < width; x += distance) {
+                    noStroke();
+                    fill('red');
+                    ellipse(x, y, r);
+
+
+                    if (x < (width - distance) && y < (height - distance)) {
+                        fill('black');
+                        text(parseInt(randomNumbers[i]), x + (distance / 2), y + (distance / 1.7));
+                        i++;
+                    }
+                }
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+<div id="heading">
+    <img src="kids.png" alt="Kids"/>
+    <h1>Tafelvierkantjes</h1>
+    <h2>Optellen tot 20</h2>
+
+</div>
+
+</body>
