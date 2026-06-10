@@ -1,114 +1,233 @@
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="nl" xml:lang="nl">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Saskia</title>
-		<meta name="viewport" content="initial-scale=1.0, width=device-width">
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800,300,400italic,700" rel="stylesheet" type="text/css">
-		<link href="https://www.vandenbaar.nl/css/main.css" rel="stylesheet" type="text/css" media="screen">
-		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script src="https://www.vandenbaar.nl/jquery.touchwipe.min.js?v=1"></script>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robert van den Baar — Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #111111; 
+            color: #f5f5f5;
+        }
 
-		<script src="https://www.vandenbaar.nl/baarSlide.js?t=1780935032"></script>
-		<link rel="stylesheet" href="https://www.vandenbaar.nl/baarSlide.css?t=1780935032">
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(17, 17, 17, 0.9);
+            backdrop-filter: blur(10px); 
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
 
-        <!-- Chrome, Firefox OS and Opera -->
-        <meta name="theme-color" content="#883399">
-        <!-- iOS Safari -->
-        <meta name="apple-mobile-web-app-status-bar-style" content="#883399">
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-		<script>
-			document.addEventListener("DOMContentLoaded", function() {
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #fff;
+        }
 
-				function lazyload () {
+        .brand img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
 
-					var lazyloadImages = document.querySelectorAll("img.lazy");
-					var lazyloadThrottleTimeout;
+        .brand span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
 
-					if(lazyloadThrottleTimeout) {
-						clearTimeout(lazyloadThrottleTimeout);
-					}
+        nav divalinks {
+            display: flex;
+            gap: 25px;
+        }
 
-					lazyloadThrottleTimeout = setTimeout(function() {
-						var scrollTop = window.pageYOffset;
-						lazyloadImages.forEach(function(img) {
-							if(img.offsetTop < (window.innerHeight + scrollTop)) {
-								img.src = img.dataset.src;
-								img.classList.remove('lazy');
-							}
-						});
-						if(lazyloadImages.length == 0) {
-							document.removeEventListener("scroll", lazyload);
-							window.removeEventListener("resize", lazyload);
-							window.removeEventListener("orientationChange", lazyload);
-						}
-					}, 20);
-				}
+        .nav-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            position: relative;
+            padding: 5px 0;
+        }
 
-				document.addEventListener("scroll", lazyload);
-				window.addEventListener("resize", lazyload);
-				window.addEventListener("orientationChange", lazyload);
-			});
-		</script>
+        .nav-link:hover {
+            color: #fff;
+        }
 
+        section {
+            padding: 120px 20px 60px 20px; 
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 80vh;
+        }
 
-	</head>
-	<body>
-		<header>
-			<div class="center-align-large">
-				<div class="social">
-					<a class="facebook" title="Do we know eachother? Add me on Facebook" href="https://www.facebook.com/saskia.vanderpol.3" target="_blank"></a>
-					<a class="twitter" title="Follow me on Twitter" href="https://twitter.com/svanderpol75" target="_blank" ></a>
-					<a class="instagram" title="Find me on Instagram" href="http://instagram.com/svanderpol75" target="_blank" ></a>
-				</div>
-				<h1><a href="index.html">Saskia van den Baar</a></h1>
-				<p class="tagline">
-					Ik ben <strong>leerkracht</strong> in het basisonderwijs, wonend in de omgeving <a target="_blank" href="http://en.wikipedia.org/wiki/Nijmegen">Nijmegen</a>.
-					In mijn vrije tijd ben ik veel bezig met <strong>haken</strong>, hieronder kun je zien wat ik allemaal maak.
-				</p>
-			</div>
-		</header>
-		<div class="content">
-			<div id="image-gallery" class="center-align-large">
-				<div class="row">
-				<a class="span swipebox" href="images_cached/2025-10-19-IMG_0056.jpg"><img class=" gallery-image" src="images_sized/2025-10-19-IMG_0056.jpg" alt="Foto" data-src="/images_sized/2025-10-19-IMG_0056.jpg"></a><a class="span swipebox" href="images_cached/2024-12-26%20at%2014.43.27.jpg"><img class=" gallery-image" src="images_sized/2024-12-26%20at%2014.43.27.jpg" alt="Foto" data-src="/images_sized/2024-12-26 at 14.43.27.jpg"></a><a class="span swipebox" href="images_cached/2024-04-11_103838152.jpg"><img class=" gallery-image" src="images_sized/2024-04-11_103838152.jpg" alt="Foto" data-src="/images_sized/2024-04-11_103838152.jpg"></a><a class="span swipebox" href="images_cached/2024-03-16_075016429.jpg"><img class=" gallery-image" src="images_sized/2024-03-16_075016429.jpg" alt="Foto" data-src="/images_sized/2024-03-16_075016429.jpg"></a><a class="span swipebox" href="images_cached/2024-01-14_151102910.jpg"><img class=" gallery-image" src="images_sized/2024-01-14_151102910.jpg" alt="Foto" data-src="/images_sized/2024-01-14_151102910.jpg"></a><a class="span swipebox" href="images_cached/2024-01-04-01.jpg"><img class=" gallery-image" src="images_sized/2024-01-04-01.jpg" alt="Foto" data-src="/images_sized/2024-01-04-01.jpg"></a><a class="span swipebox" href="images_cached/2023-05-27-IMG_9467.jpg"><img class=" gallery-image" src="images_sized/2023-05-27-IMG_9467.jpg" alt="Foto" data-src="/images_sized/2023-05-27-IMG_9467.jpg"></a><a class="span swipebox" href="images_cached/2023-05-06-IMG_9449.jpg"><img class=" gallery-image" src="images_sized/2023-05-06-IMG_9449.jpg" alt="Foto" data-src="/images_sized/2023-05-06-IMG_9449.jpg"></a><a class="span swipebox" href="images_cached/2023-05-06-IMG_9445.jpg"><img class=" gallery-image" src="images_sized/2023-05-06-IMG_9445.jpg" alt="Foto" data-src="/images_sized/2023-05-06-IMG_9445.jpg"></a><a class="span swipebox" href="images_cached/2023-04-01-IMG_9427.jpg"><img class=" gallery-image" src="images_sized/2023-04-01-IMG_9427.jpg" alt="Foto" data-src="/images_sized/2023-04-01-IMG_9427.jpg"></a><a class="span swipebox" href="images_cached/2023-01-02-IMG_9420.jpg"><img class=" gallery-image" src="images_sized/2023-01-02-IMG_9420.jpg" alt="Foto" data-src="/images_sized/2023-01-02-IMG_9420.jpg"></a><a class="span swipebox" href="images_cached/2022-11-26-IMG_9222.jpg"><img class=" gallery-image" src="images_sized/2022-11-26-IMG_9222.jpg" alt="Foto" data-src="/images_sized/2022-11-26-IMG_9222.jpg"></a><a class="span swipebox" href="images_cached/2022-11-26-IMG_9221.jpg"><img class=" gallery-image" src="images_sized/2022-11-26-IMG_9221.jpg" alt="Foto" data-src="/images_sized/2022-11-26-IMG_9221.jpg"></a><a class="span swipebox" href="images_cached/2022-11-26-IMG_9220.jpg"><img class=" gallery-image" src="images_sized/2022-11-26-IMG_9220.jpg" alt="Foto" data-src="/images_sized/2022-11-26-IMG_9220.jpg"></a><a class="span swipebox" href="images_cached/2022-11-26-IMG_9219.jpg"><img class=" gallery-image" src="images_sized/2022-11-26-IMG_9219.jpg" alt="Foto" data-src="/images_sized/2022-11-26-IMG_9219.jpg"></a><a class="span swipebox" href="images_cached/2022-11-13-IMG_9214.jpg"><img class=" gallery-image" src="images_sized/2022-11-13-IMG_9214.jpg" alt="Foto" data-src="/images_sized/2022-11-13-IMG_9214.jpg"></a><a class="span swipebox" href="images_cached/2022-10-22-IMG_9167.jpg"><img class=" gallery-image" src="images_sized/2022-10-22-IMG_9167.jpg" alt="Foto" data-src="/images_sized/2022-10-22-IMG_9167.jpg"></a><a class="span swipebox" href="images_cached/2022-10-15-IMG_9163.jpg"><img class=" gallery-image" src="images_sized/2022-10-15-IMG_9163.jpg" alt="Foto" data-src="/images_sized/2022-10-15-IMG_9163.jpg"></a><a class="span swipebox" href="images_cached/2022-08-18-IMG_9122.jpg"><img class=" gallery-image" src="images_sized/2022-08-18-IMG_9122.jpg" alt="Foto" data-src="/images_sized/2022-08-18-IMG_9122.jpg"></a><a class="span swipebox" href="images_cached/2022-06-26-IMG_9116.jpg"><img class=" gallery-image" src="images_sized/2022-06-26-IMG_9116.jpg" alt="Foto" data-src="/images_sized/2022-06-26-IMG_9116.jpg"></a><a class="span swipebox" href="images_cached/2022-05-29-IMG_9108-Edit.jpg"><img class=" gallery-image" src="images_sized/2022-05-29-IMG_9108-Edit.jpg" alt="Foto" data-src="/images_sized/2022-05-29-IMG_9108-Edit.jpg"></a><a class="span swipebox" href="images_cached/2022-03-26-IMG_9058.jpg"><img class=" gallery-image" src="images_sized/2022-03-26-IMG_9058.jpg" alt="Foto" data-src="/images_sized/2022-03-26-IMG_9058.jpg"></a><a class="span swipebox" href="images_cached/2022-03-19-IMG_9051.jpg"><img class=" gallery-image" src="images_sized/2022-03-19-IMG_9051.jpg" alt="Foto" data-src="/images_sized/2022-03-19-IMG_9051.jpg"></a><a class="span swipebox" href="images_cached/2022-03-19-IMG_9049.jpg"><img class=" gallery-image" src="images_sized/2022-03-19-IMG_9049.jpg" alt="Foto" data-src="/images_sized/2022-03-19-IMG_9049.jpg"></a><a class="span swipebox" href="images_cached/2022-01-23-IMG_9026.jpg"><img class=" gallery-image" src="images_sized/2022-01-23-IMG_9026.jpg" alt="Foto" data-src="/images_sized/2022-01-23-IMG_9026.jpg"></a><a class="span swipebox" href="images_cached/2022-01-15-IMG_9017.jpg"><img class=" gallery-image" src="images_sized/2022-01-15-IMG_9017.jpg" alt="Foto" data-src="/images_sized/2022-01-15-IMG_9017.jpg"></a><a class="span swipebox" href="images_cached/2022-01-08-IMG_9006.jpg"><img class=" gallery-image" src="images_sized/2022-01-08-IMG_9006.jpg" alt="Foto" data-src="/images_sized/2022-01-08-IMG_9006.jpg"></a><a class="span swipebox" href="images_cached/2021-10-31-IMG_8940.jpg"><img class=" gallery-image" src="images_sized/2021-10-31-IMG_8940.jpg" alt="Foto" data-src="/images_sized/2021-10-31-IMG_8940.jpg"></a><a class="span swipebox" href="images_cached/2021-10-31-IMG_8933.jpg"><img class=" gallery-image" src="images_sized/2021-10-31-IMG_8933.jpg" alt="Foto" data-src="/images_sized/2021-10-31-IMG_8933.jpg"></a><a class="span swipebox" href="images_cached/2021-10-14-IMG_8780.jpg"><img class=" gallery-image" src="images_sized/2021-10-14-IMG_8780.jpg" alt="Foto" data-src="/images_sized/2021-10-14-IMG_8780.jpg"></a><a class="span swipebox" href="images_cached/2021-09-19-IMG_8766.jpg"><img class=" gallery-image" src="images_sized/2021-09-19-IMG_8766.jpg" alt="Foto" data-src="/images_sized/2021-09-19-IMG_8766.jpg"></a><a class="span swipebox" href="images_cached/2021-08-02-IMG_8658.jpg"><img class=" gallery-image" src="images_sized/2021-08-02-IMG_8658.jpg" alt="Foto" data-src="/images_sized/2021-08-02-IMG_8658.jpg"></a><a class="span swipebox" href="images_cached/2021-05-29-IMG_8564.jpg"><img class=" gallery-image" src="images_sized/2021-05-29-IMG_8564.jpg" alt="Foto" data-src="/images_sized/2021-05-29-IMG_8564.jpg"></a><a class="span swipebox" href="images_cached/2021-04-17-IMG_8557.jpg"><img class=" gallery-image" src="images_sized/2021-04-17-IMG_8557.jpg" alt="Foto" data-src="/images_sized/2021-04-17-IMG_8557.jpg"></a><a class="span swipebox" href="images_cached/2021-04-04-IMG_8543.jpg"><img class=" gallery-image" src="images_sized/2021-04-04-IMG_8543.jpg" alt="Foto" data-src="/images_sized/2021-04-04-IMG_8543.jpg"></a><a class="span swipebox" href="images_cached/2021-03-07-IMG_8532.jpg"><img class=" gallery-image" src="images_sized/2021-03-07-IMG_8532.jpg" alt="Foto" data-src="/images_sized/2021-03-07-IMG_8532.jpg"></a><a class="span swipebox" href="images_cached/2021-03-07-IMG_8525.jpg"><img class=" gallery-image" src="images_sized/2021-03-07-IMG_8525.jpg" alt="Foto" data-src="/images_sized/2021-03-07-IMG_8525.jpg"></a><a class="span swipebox" href="images_cached/2021-03-07-IMG_8524.jpg"><img class=" gallery-image" src="images_sized/2021-03-07-IMG_8524.jpg" alt="Foto" data-src="/images_sized/2021-03-07-IMG_8524.jpg"></a><a class="span swipebox" href="images_cached/2021-03-07-IMG_8523.jpg"><img class=" gallery-image" src="images_sized/2021-03-07-IMG_8523.jpg" alt="Foto" data-src="/images_sized/2021-03-07-IMG_8523.jpg"></a><a class="span swipebox" href="images_cached/2021-02-20-IMG_8520.jpg"><img class=" gallery-image" src="images_sized/2021-02-20-IMG_8520.jpg" alt="Foto" data-src="/images_sized/2021-02-20-IMG_8520.jpg"></a><a class="span swipebox" href="images_cached/2021-02-20-IMG_8514.jpg"><img class=" gallery-image" src="images_sized/2021-02-20-IMG_8514.jpg" alt="Foto" data-src="/images_sized/2021-02-20-IMG_8514.jpg"></a><a class="span swipebox" href="images_cached/2021-02-20-IMG_8509.jpg"><img class=" gallery-image" src="images_sized/2021-02-20-IMG_8509.jpg" alt="Foto" data-src="/images_sized/2021-02-20-IMG_8509.jpg"></a><a class="span swipebox" href="images_cached/2021-02-13-IMG_8504.jpg"><img class=" gallery-image" src="images_sized/2021-02-13-IMG_8504.jpg" alt="Foto" data-src="/images_sized/2021-02-13-IMG_8504.jpg"></a><a class="span swipebox" href="images_cached/2021-02-13-IMG_8503.jpg"><img class=" gallery-image" src="images_sized/2021-02-13-IMG_8503.jpg" alt="Foto" data-src="/images_sized/2021-02-13-IMG_8503.jpg"></a><a class="span swipebox" href="images_cached/2021-01-23-IMG_8497.jpg"><img class=" gallery-image" src="images_sized/2021-01-23-IMG_8497.jpg" alt="Foto" data-src="/images_sized/2021-01-23-IMG_8497.jpg"></a><a class="span swipebox" href="images_cached/2021-01-23-IMG_8493.jpg"><img class=" gallery-image" src="images_sized/2021-01-23-IMG_8493.jpg" alt="Foto" data-src="/images_sized/2021-01-23-IMG_8493.jpg"></a><a class="span swipebox" href="images_cached/2021-01-23-IMG_8484.jpg"><img class=" gallery-image" src="images_sized/2021-01-23-IMG_8484.jpg" alt="Foto" data-src="/images_sized/2021-01-23-IMG_8484.jpg"></a><a class="span swipebox" href="images_cached/2021-01-16-IMG_8483.jpg"><img class=" gallery-image" src="images_sized/2021-01-16-IMG_8483.jpg" alt="Foto" data-src="/images_sized/2021-01-16-IMG_8483.jpg"></a><a class="span swipebox" href="images_cached/2021-01-09-IMG_8478.jpg"><img class=" gallery-image" src="images_sized/2021-01-09-IMG_8478.jpg" alt="Foto" data-src="/images_sized/2021-01-09-IMG_8478.jpg"></a><a class="span swipebox" href="images_cached/2021-01-02-IMG_8465.jpg"><img class=" gallery-image" src="images_sized/2021-01-02-IMG_8465.jpg" alt="Foto" data-src="/images_sized/2021-01-02-IMG_8465.jpg"></a><a class="span swipebox" href="images_cached/2021-01-01-IMG_8458.jpg"><img class=" gallery-image" src="images_sized/2021-01-01-IMG_8458.jpg" alt="Foto" data-src="/images_sized/2021-01-01-IMG_8458.jpg"></a><a class="span swipebox" href="images_cached/2021-01-01-IMG_8457.jpg"><img class=" gallery-image" src="images_sized/2021-01-01-IMG_8457.jpg" alt="Foto" data-src="/images_sized/2021-01-01-IMG_8457.jpg"></a><a class="span swipebox" href="images_cached/2020-12-27-IMG_8441.jpg"><img class=" gallery-image" src="images_sized/2020-12-27-IMG_8441.jpg" alt="Foto" data-src="/images_sized/2020-12-27-IMG_8441.jpg"></a><a class="span swipebox" href="images_cached/2020-12-27-IMG_8437.jpg"><img class=" gallery-image" src="images_sized/2020-12-27-IMG_8437.jpg" alt="Foto" data-src="/images_sized/2020-12-27-IMG_8437.jpg"></a><a class="span swipebox" href="images_cached/2020-12-12-IMG_8388.jpg"><img class=" gallery-image" src="images_sized/2020-12-12-IMG_8388.jpg" alt="Foto" data-src="/images_sized/2020-12-12-IMG_8388.jpg"></a><a class="span swipebox" href="images_cached/2020-12-12-IMG_8384.jpg"><img class=" gallery-image" src="images_sized/2020-12-12-IMG_8384.jpg" alt="Foto" data-src="/images_sized/2020-12-12-IMG_8384.jpg"></a><a class="span swipebox" href="images_cached/2020-12-06-IMG_8379.jpg"><img class=" gallery-image" src="images_sized/2020-12-06-IMG_8379.jpg" alt="Foto" data-src="/images_sized/2020-12-06-IMG_8379.jpg"></a><a class="span swipebox" href="images_cached/2020-12-06-IMG_8376.jpg"><img class=" gallery-image" src="images_sized/2020-12-06-IMG_8376.jpg" alt="Foto" data-src="/images_sized/2020-12-06-IMG_8376.jpg"></a><a class="span swipebox" href="images_cached/2020-11-21-IMG_8367.jpg"><img class=" gallery-image" src="images_sized/2020-11-21-IMG_8367.jpg" alt="Foto" data-src="/images_sized/2020-11-21-IMG_8367.jpg"></a><a class="span swipebox" href="images_cached/2020-10-18-IMG_8161.jpg"><img class=" gallery-image" src="images_sized/2020-10-18-IMG_8161.jpg" alt="Foto" data-src="/images_sized/2020-10-18-IMG_8161.jpg"></a><a class="span swipebox" href="images_cached/2020-10-17-IMG_8131.jpg"><img class=" gallery-image" src="images_sized/2020-10-17-IMG_8131.jpg" alt="Foto" data-src="/images_sized/2020-10-17-IMG_8131.jpg"></a><a class="span swipebox" href="images_cached/2020-10-17-IMG_8128.jpg"><img class=" gallery-image" src="images_sized/2020-10-17-IMG_8128.jpg" alt="Foto" data-src="/images_sized/2020-10-17-IMG_8128.jpg"></a><a class="span swipebox" href="images_cached/2020-10-10-2020_10_10_0689.jpg"><img class=" gallery-image" src="images_sized/2020-10-10-2020_10_10_0689.jpg" alt="Foto" data-src="/images_sized/2020-10-10-2020_10_10_0689.jpg"></a><a class="span swipebox" href="images_cached/2020-10-07-2020_10_07_0681.jpg"><img class=" gallery-image" src="images_sized/2020-10-07-2020_10_07_0681.jpg" alt="Foto" data-src="/images_sized/2020-10-07-2020_10_07_0681.jpg"></a><a class="span swipebox" href="images_cached/2020-09-25-IMG_7970.jpg"><img class=" gallery-image" src="images_sized/2020-09-25-IMG_7970.jpg" alt="Foto" data-src="/images_sized/2020-09-25-IMG_7970.jpg"></a><a class="span swipebox" href="images_cached/2020-09-12-2020_09_12_0623.jpg"><img class=" gallery-image" src="images_sized/2020-09-12-2020_09_12_0623.jpg" alt="Foto" data-src="/images_sized/2020-09-12-2020_09_12_0623.jpg"></a><a class="span swipebox" href="images_cached/2020-08-26-2020_08_26_0566.jpg"><img class=" gallery-image" src="images_sized/2020-08-26-2020_08_26_0566.jpg" alt="Foto" data-src="/images_sized/2020-08-26-2020_08_26_0566.jpg"></a><a class="span swipebox" href="images_cached/2020-07-25-2020_07_25_0433.jpg"><img class=" gallery-image" src="images_sized/2020-07-25-2020_07_25_0433.jpg" alt="Foto" data-src="/images_sized/2020-07-25-2020_07_25_0433.jpg"></a><a class="span swipebox" href="images_cached/2020-07-19-2020_07_19_0400.jpg"><img class=" gallery-image" src="images_sized/2020-07-19-2020_07_19_0400.jpg" alt="Foto" data-src="/images_sized/2020-07-19-2020_07_19_0400.jpg"></a><a class="span swipebox" href="images_cached/2020-07-14-2020_07_14_0349.jpg"><img class=" gallery-image" src="images_sized/2020-07-14-2020_07_14_0349.jpg" alt="Foto" data-src="/images_sized/2020-07-14-2020_07_14_0349.jpg"></a><a class="span swipebox" href="images_cached/2020-06-23-2020_06_23_0206.jpg"><img class=" gallery-image" src="images_sized/2020-06-23-2020_06_23_0206.jpg" alt="Foto" data-src="/images_sized/2020-06-23-2020_06_23_0206.jpg"></a><a class="span swipebox" href="images_cached/2020-06-07-IMG_5733.jpg"><img class=" gallery-image" src="images_sized/2020-06-07-IMG_5733.jpg" alt="Foto" data-src="/images_sized/2020-06-07-IMG_5733.jpg"></a><a class="span swipebox" href="images_cached/2020-05-24-IMG_5647.jpg"><img class=" gallery-image" src="images_sized/2020-05-24-IMG_5647.jpg" alt="Foto" data-src="/images_sized/2020-05-24-IMG_5647.jpg"></a><a class="span swipebox" href="images_cached/2020-05-02-IMG_5525.jpg"><img class=" gallery-image" src="images_sized/2020-05-02-IMG_5525.jpg" alt="Foto" data-src="/images_sized/2020-05-02-IMG_5525.jpg"></a><a class="span swipebox" href="images_cached/2020-03-14-IMG_5494.jpg"><img class=" gallery-image" src="images_sized/2020-03-14-IMG_5494.jpg" alt="Foto" data-src="/images_sized/2020-03-14-IMG_5494.jpg"></a><a class="span swipebox" href="images_cached/2020-03-14-IMG_5490.jpg"><img class=" gallery-image" src="images_sized/2020-03-14-IMG_5490.jpg" alt="Foto" data-src="/images_sized/2020-03-14-IMG_5490.jpg"></a><a class="span swipebox" href="images_cached/2020-01-06-IMG_5380.jpg"><img class=" gallery-image" src="images_sized/2020-01-06-IMG_5380.jpg" alt="Foto" data-src="/images_sized/2020-01-06-IMG_5380.jpg"></a><a class="span swipebox" href="images_cached/2019-12-22-IMG_5350.jpg"><img class=" gallery-image" src="images_sized/2019-12-22-IMG_5350.jpg" alt="Foto" data-src="/images_sized/2019-12-22-IMG_5350.jpg"></a><a class="span swipebox" href="images_cached/2019-12-22-IMG_5349.jpg"><img class=" gallery-image" src="images_sized/2019-12-22-IMG_5349.jpg" alt="Foto" data-src="/images_sized/2019-12-22-IMG_5349.jpg"></a><a class="span swipebox" href="images_cached/2019-12-01-IMG_5347.jpg"><img class=" gallery-image" src="images_sized/2019-12-01-IMG_5347.jpg" alt="Foto" data-src="/images_sized/2019-12-01-IMG_5347.jpg"></a><a class="span swipebox" href="images_cached/2019-11-24-IMG_5346.jpg"><img class=" gallery-image" src="images_sized/2019-11-24-IMG_5346.jpg" alt="Foto" data-src="/images_sized/2019-11-24-IMG_5346.jpg"></a><a class="span swipebox" href="images_cached/2019-11-09-IMG_5315.jpg"><img class=" gallery-image" src="images_sized/2019-11-09-IMG_5315.jpg" alt="Foto" data-src="/images_sized/2019-11-09-IMG_5315.jpg"></a><a class="span swipebox" href="images_cached/2019-10-27-IMG_5301.jpg"><img class=" gallery-image" src="images_sized/2019-10-27-IMG_5301.jpg" alt="Foto" data-src="/images_sized/2019-10-27-IMG_5301.jpg"></a><a class="span swipebox" href="images_cached/2019-10-19-IMG_5290.jpg"><img class=" gallery-image" src="images_sized/2019-10-19-IMG_5290.jpg" alt="Foto" data-src="/images_sized/2019-10-19-IMG_5290.jpg"></a><a class="span swipebox" href="images_cached/2019-09-30-IMG_5280.jpg"><img class=" gallery-image" src="images_sized/2019-09-30-IMG_5280.jpg" alt="Foto" data-src="/images_sized/2019-09-30-IMG_5280.jpg"></a><a class="span swipebox" href="images_cached/2019-09-29-IMG_5279.jpg"><img class=" gallery-image" src="images_sized/2019-09-29-IMG_5279.jpg" alt="Foto" data-src="/images_sized/2019-09-29-IMG_5279.jpg"></a><a class="span swipebox" href="images_cached/2019-09-29-IMG_5274.jpg"><img class=" gallery-image" src="images_sized/2019-09-29-IMG_5274.jpg" alt="Foto" data-src="/images_sized/2019-09-29-IMG_5274.jpg"></a><a class="span swipebox" href="images_cached/2019-09-19-IMG_5266.jpg"><img class=" gallery-image" src="images_sized/2019-09-19-IMG_5266.jpg" alt="Foto" data-src="/images_sized/2019-09-19-IMG_5266.jpg"></a><a class="span swipebox" href="images_cached/2019-09-19-IMG_5263.jpg"><img class=" gallery-image" src="images_sized/2019-09-19-IMG_5263.jpg" alt="Foto" data-src="/images_sized/2019-09-19-IMG_5263.jpg"></a><a class="span swipebox" href="images_cached/2019-09-19-IMG_5257.jpg"><img class=" gallery-image" src="images_sized/2019-09-19-IMG_5257.jpg" alt="Foto" data-src="/images_sized/2019-09-19-IMG_5257.jpg"></a><a class="span swipebox" href="images_cached/2019-08-24-IMG_5227.jpg"><img class=" gallery-image" src="images_sized/2019-08-24-IMG_5227.jpg" alt="Foto" data-src="/images_sized/2019-08-24-IMG_5227.jpg"></a><a class="span swipebox" href="images_cached/2019-08-24-IMG_5223.jpg"><img class=" gallery-image" src="images_sized/2019-08-24-IMG_5223.jpg" alt="Foto" data-src="/images_sized/2019-08-24-IMG_5223.jpg"></a><a class="span swipebox" href="images_cached/2019-08-10-IMG_5215.jpg"><img class=" gallery-image" src="images_sized/2019-08-10-IMG_5215.jpg" alt="Foto" data-src="/images_sized/2019-08-10-IMG_5215.jpg"></a><a class="span swipebox" href="images_cached/2019-07-15-IMG_5185.jpg"><img class=" gallery-image" src="images_sized/2019-07-15-IMG_5185.jpg" alt="Foto" data-src="/images_sized/2019-07-15-IMG_5185.jpg"></a><a class="span swipebox" href="images_cached/2019-07-15-IMG_5181.jpg"><img class=" gallery-image" src="images_sized/2019-07-15-IMG_5181.jpg" alt="Foto" data-src="/images_sized/2019-07-15-IMG_5181.jpg"></a><a class="span swipebox" href="images_cached/2019-06-23-IMG_5149.jpg"><img class=" gallery-image" src="images_sized/2019-06-23-IMG_5149.jpg" alt="Foto" data-src="/images_sized/2019-06-23-IMG_5149.jpg"></a><a class="span swipebox" href="images_cached/2019-06-23-IMG_5134.jpg"><img class=" gallery-image" src="images_sized/2019-06-23-IMG_5134.jpg" alt="Foto" data-src="/images_sized/2019-06-23-IMG_5134.jpg"></a><a class="span swipebox" href="images_cached/2019-06-10-IMG_5130.jpg"><img class=" gallery-image" src="images_sized/2019-06-10-IMG_5130.jpg" alt="Foto" data-src="/images_sized/2019-06-10-IMG_5130.jpg"></a><a class="span swipebox" href="images_cached/2019-06-10-IMG_5126.jpg"><img class=" gallery-image" src="images_sized/2019-06-10-IMG_5126.jpg" alt="Foto" data-src="/images_sized/2019-06-10-IMG_5126.jpg"></a><a class="span swipebox" href="images_cached/2019-05-19-IMG_5116.jpg"><img class=" gallery-image" src="images_sized/2019-05-19-IMG_5116.jpg" alt="Foto" data-src="/images_sized/2019-05-19-IMG_5116.jpg"></a><a class="span swipebox" href="images_cached/2019-04-28-IMG_5084.jpg"><img class=" gallery-image" src="images_sized/2019-04-28-IMG_5084.jpg" alt="Foto" data-src="/images_sized/2019-04-28-IMG_5084.jpg"></a><a class="span swipebox" href="images_cached/2019-04-28-IMG_5077.jpg"><img class=" gallery-image" src="images_sized/2019-04-28-IMG_5077.jpg" alt="Foto" data-src="/images_sized/2019-04-28-IMG_5077.jpg"></a><a class="span swipebox" href="images_cached/2019-04-28-IMG_5076.jpg"><img class=" gallery-image" src="images_sized/2019-04-28-IMG_5076.jpg" alt="Foto" data-src="/images_sized/2019-04-28-IMG_5076.jpg"></a><a class="span swipebox" href="images_cached/2019-04-28-IMG_5075.jpg"><img class=" gallery-image" src="images_sized/2019-04-28-IMG_5075.jpg" alt="Foto" data-src="/images_sized/2019-04-28-IMG_5075.jpg"></a><a class="span swipebox" href="images_cached/2019-04-14-IMG_5069.jpg"><img class=" gallery-image" src="images_sized/2019-04-14-IMG_5069.jpg" alt="Foto" data-src="/images_sized/2019-04-14-IMG_5069.jpg"></a><a class="span swipebox" href="images_cached/2019-04-10-IMG_5062.jpg"><img class=" gallery-image" src="images_sized/2019-04-10-IMG_5062.jpg" alt="Foto" data-src="/images_sized/2019-04-10-IMG_5062.jpg"></a><a class="span swipebox" href="images_cached/2019-04-10-IMG_5060.jpg"><img class=" gallery-image" src="images_sized/2019-04-10-IMG_5060.jpg" alt="Foto" data-src="/images_sized/2019-04-10-IMG_5060.jpg"></a><a class="span swipebox" href="images_cached/2019-04-09-IMG_5059.jpg"><img class=" gallery-image" src="images_sized/2019-04-09-IMG_5059.jpg" alt="Foto" data-src="/images_sized/2019-04-09-IMG_5059.jpg"></a><a class="span swipebox" href="images_cached/2019-04-06-IMG_5057.jpg"><img class=" gallery-image" src="images_sized/2019-04-06-IMG_5057.jpg" alt="Foto" data-src="/images_sized/2019-04-06-IMG_5057.jpg"></a><a class="span swipebox" href="images_cached/2019-04-06-IMG_5050.jpg"><img class=" gallery-image" src="images_sized/2019-04-06-IMG_5050.jpg" alt="Foto" data-src="/images_sized/2019-04-06-IMG_5050.jpg"></a><a class="span swipebox" href="images_cached/2019-04-06-IMG_5049.jpg"><img class=" gallery-image" src="images_sized/2019-04-06-IMG_5049.jpg" alt="Foto" data-src="/images_sized/2019-04-06-IMG_5049.jpg"></a><a class="span swipebox" href="images_cached/2019-04-06-IMG_5047.jpg"><img class=" gallery-image" src="images_sized/2019-04-06-IMG_5047.jpg" alt="Foto" data-src="/images_sized/2019-04-06-IMG_5047.jpg"></a><a class="span swipebox" href="images_cached/2019-03-26-IMG_5043.jpg"><img class=" gallery-image" src="images_sized/2019-03-26-IMG_5043.jpg" alt="Foto" data-src="/images_sized/2019-03-26-IMG_5043.jpg"></a><a class="span swipebox" href="images_cached/2019-03-25-IMG_5041.jpg"><img class=" gallery-image" src="images_sized/2019-03-25-IMG_5041.jpg" alt="Foto" data-src="/images_sized/2019-03-25-IMG_5041.jpg"></a><a class="span swipebox" href="images_cached/2019-03-25-IMG_5039.jpg"><img class=" gallery-image" src="images_sized/2019-03-25-IMG_5039.jpg" alt="Foto" data-src="/images_sized/2019-03-25-IMG_5039.jpg"></a><a class="span swipebox" href="images_cached/2019-03-23-IMG_5034.jpg"><img class=" gallery-image" src="images_sized/2019-03-23-IMG_5034.jpg" alt="Foto" data-src="/images_sized/2019-03-23-IMG_5034.jpg"></a><a class="span swipebox" href="images_cached/2019-03-21-IMG_5031.jpg"><img class=" gallery-image" src="images_sized/2019-03-21-IMG_5031.jpg" alt="Foto" data-src="/images_sized/2019-03-21-IMG_5031.jpg"></a><a class="span swipebox" href="images_cached/2019-03-09-IMG_4969.jpg"><img class=" gallery-image" src="images_sized/2019-03-09-IMG_4969.jpg" alt="Foto" data-src="/images_sized/2019-03-09-IMG_4969.jpg"></a><a class="span swipebox" href="images_cached/2019-03-09-IMG_4959.jpg"><img class=" gallery-image" src="images_sized/2019-03-09-IMG_4959.jpg" alt="Foto" data-src="/images_sized/2019-03-09-IMG_4959.jpg"></a><a class="span swipebox" href="images_cached/2019-02-24-IMG_4912.jpg"><img class=" gallery-image" src="images_sized/2019-02-24-IMG_4912.jpg" alt="Foto" data-src="/images_sized/2019-02-24-IMG_4912.jpg"></a><a class="span swipebox" href="images_cached/2019-02-24-IMG_4896.jpg"><img class=" gallery-image" src="images_sized/2019-02-24-IMG_4896.jpg" alt="Foto" data-src="/images_sized/2019-02-24-IMG_4896.jpg"></a><a class="span swipebox" href="images_cached/2019-01-20-IMG_4840.jpg"><img class=" gallery-image" src="images_sized/2019-01-20-IMG_4840.jpg" alt="Foto" data-src="/images_sized/2019-01-20-IMG_4840.jpg"></a><a class="span swipebox" href="images_cached/2019-01-13-IMG_4837.jpg"><img class=" gallery-image" src="images_sized/2019-01-13-IMG_4837.jpg" alt="Foto" data-src="/images_sized/2019-01-13-IMG_4837.jpg"></a><a class="span swipebox" href="images_cached/2019-01-13-IMG_4835.jpg"><img class=" gallery-image" src="images_sized/2019-01-13-IMG_4835.jpg" alt="Foto" data-src="/images_sized/2019-01-13-IMG_4835.jpg"></a><a class="span swipebox" href="images_cached/2018-12-31-IMG_4800.jpg"><img class=" gallery-image" src="images_sized/2018-12-31-IMG_4800.jpg" alt="Foto" data-src="/images_sized/2018-12-31-IMG_4800.jpg"></a><a class="span swipebox" href="images_cached/2018-12-31-IMG_4790.jpg"><img class=" gallery-image" src="images_sized/2018-12-31-IMG_4790.jpg" alt="Foto" data-src="/images_sized/2018-12-31-IMG_4790.jpg"></a><a class="span swipebox" href="images_cached/2018-12-24-IMG_4785-4.jpg"><img class=" gallery-image" src="images_sized/2018-12-24-IMG_4785-4.jpg" alt="Foto" data-src="/images_sized/2018-12-24-IMG_4785-4.jpg"></a><a class="span swipebox" href="images_cached/2018-12-02-IMG_4731.jpg"><img class=" gallery-image" src="images_sized/2018-12-02-IMG_4731.jpg" alt="Foto" data-src="/images_sized/2018-12-02-IMG_4731.jpg"></a><a class="span swipebox" href="images_cached/2018-12-02-IMG_4727.jpg"><img class=" gallery-image" src="images_sized/2018-12-02-IMG_4727.jpg" alt="Foto" data-src="/images_sized/2018-12-02-IMG_4727.jpg"></a><a class="span swipebox" href="images_cached/2018-12-02-IMG_4725.jpg"><img class=" gallery-image" src="images_sized/2018-12-02-IMG_4725.jpg" alt="Foto" data-src="/images_sized/2018-12-02-IMG_4725.jpg"></a><a class="span swipebox" href="images_cached/2018-12-02-IMG_4699.jpg"><img class=" gallery-image" src="images_sized/2018-12-02-IMG_4699.jpg" alt="Foto" data-src="/images_sized/2018-12-02-IMG_4699.jpg"></a><a class="span swipebox" href="images_cached/2018-10-28-IMG_4696.jpg"><img class=" gallery-image" src="images_sized/2018-10-28-IMG_4696.jpg" alt="Foto" data-src="/images_sized/2018-10-28-IMG_4696.jpg"></a><a class="span swipebox" href="images_cached/2018-08-11-IMG_4330.jpg"><img class=" gallery-image" src="images_sized/2018-08-11-IMG_4330.jpg" alt="Foto" data-src="/images_sized/2018-08-11-IMG_4330.jpg"></a><a class="span swipebox" href="images_cached/2018-08-11-IMG_4328.jpg"><img class=" gallery-image" src="images_sized/2018-08-11-IMG_4328.jpg" alt="Foto" data-src="/images_sized/2018-08-11-IMG_4328.jpg"></a><a class="span swipebox" href="images_cached/2018-08-11-IMG_4326.jpg"><img class=" gallery-image" src="images_sized/2018-08-11-IMG_4326.jpg" alt="Foto" data-src="/images_sized/2018-08-11-IMG_4326.jpg"></a><a class="span swipebox" href="images_cached/2018-07-31-IMG_4325.jpg"><img class=" gallery-image" src="images_sized/2018-07-31-IMG_4325.jpg" alt="Foto" data-src="/images_sized/2018-07-31-IMG_4325.jpg"></a><a class="span swipebox" href="images_cached/2018-07-14-IMG_4319.jpg"><img class=" gallery-image" src="images_sized/2018-07-14-IMG_4319.jpg" alt="Foto" data-src="/images_sized/2018-07-14-IMG_4319.jpg"></a><a class="span swipebox" href="images_cached/2018-07-05-IMG_4313.jpg"><img class=" gallery-image" src="images_sized/2018-07-05-IMG_4313.jpg" alt="Foto" data-src="/images_sized/2018-07-05-IMG_4313.jpg"></a><a class="span swipebox" href="images_cached/2018-06-27-IMG_4201.jpg"><img class=" gallery-image" src="images_sized/2018-06-27-IMG_4201.jpg" alt="Foto" data-src="/images_sized/2018-06-27-IMG_4201.jpg"></a><a class="span swipebox" href="images_cached/2018-06-20-IMG_4188.jpg"><img class=" gallery-image" src="images_sized/2018-06-20-IMG_4188.jpg" alt="Foto" data-src="/images_sized/2018-06-20-IMG_4188.jpg"></a><a class="span swipebox" href="images_cached/2018-06-12-IMG_4177.jpg"><img class=" gallery-image" src="images_sized/2018-06-12-IMG_4177.jpg" alt="Foto" data-src="/images_sized/2018-06-12-IMG_4177.jpg"></a><a class="span swipebox" href="images_cached/2018-03-11-IMG_3947.jpg"><img class=" gallery-image" src="images_sized/2018-03-11-IMG_3947.jpg" alt="Foto" data-src="/images_sized/2018-03-11-IMG_3947.jpg"></a><a class="span swipebox" href="images_cached/2018-02-18-IMG_3924.jpg"><img class=" gallery-image" src="images_sized/2018-02-18-IMG_3924.jpg" alt="Foto" data-src="/images_sized/2018-02-18-IMG_3924.jpg"></a><a class="span swipebox" href="images_cached/2018-02-18-IMG_3882.jpg"><img class=" gallery-image" src="images_sized/2018-02-18-IMG_3882.jpg" alt="Foto" data-src="/images_sized/2018-02-18-IMG_3882.jpg"></a><a class="span swipebox" href="images_cached/2018-02-10-IMG_3864.jpg"><img class=" gallery-image" src="images_sized/2018-02-10-IMG_3864.jpg" alt="Foto" data-src="/images_sized/2018-02-10-IMG_3864.jpg"></a><a class="span swipebox" href="images_cached/2018-02-10-IMG_3859.jpg"><img class=" gallery-image" src="images_sized/2018-02-10-IMG_3859.jpg" alt="Foto" data-src="/images_sized/2018-02-10-IMG_3859.jpg"></a><a class="span swipebox" href="images_cached/2018-02-04-IMG_3856.jpg"><img class=" gallery-image" src="images_sized/2018-02-04-IMG_3856.jpg" alt="Foto" data-src="/images_sized/2018-02-04-IMG_3856.jpg"></a><a class="span swipebox" href="images_cached/2018-01-27-IMG_3811.jpg"><img class=" gallery-image" src="images_sized/2018-01-27-IMG_3811.jpg" alt="Foto" data-src="/images_sized/2018-01-27-IMG_3811.jpg"></a><a class="span swipebox" href="images_cached/2018-01-27-IMG_3807.jpg"><img class=" gallery-image" src="images_sized/2018-01-27-IMG_3807.jpg" alt="Foto" data-src="/images_sized/2018-01-27-IMG_3807.jpg"></a><a class="span swipebox" href="images_cached/2018-01-21-IMG_3798.jpg"><img class=" gallery-image" src="images_sized/2018-01-21-IMG_3798.jpg" alt="Foto" data-src="/images_sized/2018-01-21-IMG_3798.jpg"></a><a class="span swipebox" href="images_cached/2018-01-14-IMG_3784.jpg"><img class=" gallery-image" src="images_sized/2018-01-14-IMG_3784.jpg" alt="Foto" data-src="/images_sized/2018-01-14-IMG_3784.jpg"></a><a class="span swipebox" href="images_cached/2018-01-06-IMG_3731.jpg"><img class=" gallery-image" src="images_sized/2018-01-06-IMG_3731.jpg" alt="Foto" data-src="/images_sized/2018-01-06-IMG_3731.jpg"></a><a class="span swipebox" href="images_cached/2018-01-06-IMG_3716.jpg"><img class=" gallery-image" src="images_sized/2018-01-06-IMG_3716.jpg" alt="Foto" data-src="/images_sized/2018-01-06-IMG_3716.jpg"></a><a class="span swipebox" href="images_cached/2018-01-01-IMG_3686.jpg"><img class=" gallery-image" src="images_sized/2018-01-01-IMG_3686.jpg" alt="Foto" data-src="/images_sized/2018-01-01-IMG_3686.jpg"></a><a class="span swipebox" href="images_cached/2017-12-25-IMG_3516.jpg"><img class=" gallery-image" src="images_sized/2017-12-25-IMG_3516.jpg" alt="Foto" data-src="/images_sized/2017-12-25-IMG_3516.jpg"></a><a class="span swipebox" href="images_cached/2017-12-11-IMG_3152.jpg"><img class=" gallery-image" src="images_sized/2017-12-11-IMG_3152.jpg" alt="Foto" data-src="/images_sized/2017-12-11-IMG_3152.jpg"></a><a class="span swipebox" href="images_cached/2017-12-01-IMG_2888.jpg"><img class=" gallery-image" src="images_sized/2017-12-01-IMG_2888.jpg" alt="Foto" data-src="/images_sized/2017-12-01-IMG_2888.jpg"></a><a class="span swipebox" href="images_cached/2017-11-19-IMG_2714.jpg"><img class=" gallery-image" src="images_sized/2017-11-19-IMG_2714.jpg" alt="Foto" data-src="/images_sized/2017-11-19-IMG_2714.jpg"></a><a class="span swipebox" href="images_cached/2017-11-16-IMG_2649.jpg"><img class=" gallery-image" src="images_sized/2017-11-16-IMG_2649.jpg" alt="Foto" data-src="/images_sized/2017-11-16-IMG_2649.jpg"></a><a class="span swipebox" href="images_cached/2017-11-12-IMG_2589.jpg"><img class=" gallery-image" src="images_sized/2017-11-12-IMG_2589.jpg" alt="Foto" data-src="/images_sized/2017-11-12-IMG_2589.jpg"></a><a class="span swipebox" href="images_cached/2017-11-04-IMG_2425.jpg"><img class=" gallery-image" src="images_sized/2017-11-04-IMG_2425.jpg" alt="Foto" data-src="/images_sized/2017-11-04-IMG_2425.jpg"></a><a class="span swipebox" href="images_cached/2017-10-14-IMG_2234.jpg"><img class=" gallery-image" src="images_sized/2017-10-14-IMG_2234.jpg" alt="Foto" data-src="/images_sized/2017-10-14-IMG_2234.jpg"></a><a class="span swipebox" href="images_cached/2017-10-10-IMG_2225.jpg"><img class=" gallery-image" src="images_sized/2017-10-10-IMG_2225.jpg" alt="Foto" data-src="/images_sized/2017-10-10-IMG_2225.jpg"></a><a class="span swipebox" href="images_cached/2017-10-01-IMG_2212.jpg"><img class=" gallery-image" src="images_sized/2017-10-01-IMG_2212.jpg" alt="Foto" data-src="/images_sized/2017-10-01-IMG_2212.jpg"></a><a class="span swipebox" href="images_cached/2017-09-27-IMG_2184.jpg"><img class=" gallery-image" src="images_sized/2017-09-27-IMG_2184.jpg" alt="Foto" data-src="/images_sized/2017-09-27-IMG_2184.jpg"></a><a class="span swipebox" href="images_cached/2017-09-13-IMG_2129.jpg"><img class=" gallery-image" src="images_sized/2017-09-13-IMG_2129.jpg" alt="Foto" data-src="/images_sized/2017-09-13-IMG_2129.jpg"></a><a class="span swipebox" href="images_cached/2017-01-30-IMG_1542.jpg"><img class=" gallery-image" src="images_sized/2017-01-30-IMG_1542.jpg" alt="Foto" data-src="/images_sized/2017-01-30-IMG_1542.jpg"></a><a class="span swipebox" href="images_cached/2017-01-29-IMG_1535.jpg"><img class=" gallery-image" src="images_sized/2017-01-29-IMG_1535.jpg" alt="Foto" data-src="/images_sized/2017-01-29-IMG_1535.jpg"></a><a class="span swipebox" href="images_cached/2017-01-15-IMG_1515.jpg"><img class=" gallery-image" src="images_sized/2017-01-15-IMG_1515.jpg" alt="Foto" data-src="/images_sized/2017-01-15-IMG_1515.jpg"></a><a class="span swipebox" href="images_cached/2016-12-25-IMG_1422.jpg"><img class=" gallery-image" src="images_sized/2016-12-25-IMG_1422.jpg" alt="Foto" data-src="/images_sized/2016-12-25-IMG_1422.jpg"></a><a class="span swipebox" href="images_cached/2016-12-25-IMG_1418.jpg"><img class=" gallery-image" src="images_sized/2016-12-25-IMG_1418.jpg" alt="Foto" data-src="/images_sized/2016-12-25-IMG_1418.jpg"></a><a class="span swipebox" href="images_cached/2016-11-13-IMG_0139.jpg"><img class=" gallery-image" src="images_sized/2016-11-13-IMG_0139.jpg" alt="Foto" data-src="/images_sized/2016-11-13-IMG_0139.jpg"></a><a class="span swipebox" href="images_cached/2016-11-13-IMG_0137.jpg"><img class=" gallery-image" src="images_sized/2016-11-13-IMG_0137.jpg" alt="Foto" data-src="/images_sized/2016-11-13-IMG_0137.jpg"></a><a class="span swipebox" href="images_cached/2016-11-06-IMG_1184.jpg"><img class=" gallery-image" src="images_sized/2016-11-06-IMG_1184.jpg" alt="Foto" data-src="/images_sized/2016-11-06-IMG_1184.jpg"></a><a class="span swipebox" href="images_cached/2016-10-18-IMG_1133.jpg"><img class=" gallery-image" src="images_sized/2016-10-18-IMG_1133.jpg" alt="Foto" data-src="/images_sized/2016-10-18-IMG_1133.jpg"></a><a class="span swipebox" href="images_cached/2016-10-18-IMG_1128.jpg"><img class=" gallery-image" src="images_sized/2016-10-18-IMG_1128.jpg" alt="Foto" data-src="/images_sized/2016-10-18-IMG_1128.jpg"></a><a class="span swipebox" href="images_cached/2016-10-10-IMG_1089.jpg"><img class=" gallery-image" src="images_sized/2016-10-10-IMG_1089.jpg" alt="Foto" data-src="/images_sized/2016-10-10-IMG_1089.jpg"></a><a class="span swipebox" href="images_cached/2016-09-16-IMG_0988.jpg"><img class=" gallery-image" src="images_sized/2016-09-16-IMG_0988.jpg" alt="Foto" data-src="/images_sized/2016-09-16-IMG_0988.jpg"></a><a class="span swipebox" href="images_cached/2016-08-20-IMG_0961.jpg"><img class=" gallery-image" src="images_sized/2016-08-20-IMG_0961.jpg" alt="Foto" data-src="/images_sized/2016-08-20-IMG_0961.jpg"></a><a class="span swipebox" href="images_cached/2016-08-20-IMG_0955.jpg"><img class=" gallery-image" src="images_sized/2016-08-20-IMG_0955.jpg" alt="Foto" data-src="/images_sized/2016-08-20-IMG_0955.jpg"></a><a class="span swipebox" href="images_cached/2016-08-20-IMG_0951.jpg"><img class=" gallery-image" src="images_sized/2016-08-20-IMG_0951.jpg" alt="Foto" data-src="/images_sized/2016-08-20-IMG_0951.jpg"></a><a class="span swipebox" href="images_cached/2016-08-20-IMG_0950.jpg"><img class=" gallery-image" src="images_sized/2016-08-20-IMG_0950.jpg" alt="Foto" data-src="/images_sized/2016-08-20-IMG_0950.jpg"></a><a class="span swipebox" href="images_cached/2016-05-20-IMG_0812.jpg"><img class=" gallery-image" src="images_sized/2016-05-20-IMG_0812.jpg" alt="Foto" data-src="/images_sized/2016-05-20-IMG_0812.jpg"></a><a class="span swipebox" href="images_cached/2016-05-13-IMG_0800.jpg"><img class=" gallery-image" src="images_sized/2016-05-13-IMG_0800.jpg" alt="Foto" data-src="/images_sized/2016-05-13-IMG_0800.jpg"></a><a class="span swipebox" href="images_cached/2016-05-01-IMG_0745.jpg"><img class=" gallery-image" src="images_sized/2016-05-01-IMG_0745.jpg" alt="Foto" data-src="/images_sized/2016-05-01-IMG_0745.jpg"></a><a class="span swipebox" href="images_cached/2016-04-29-IMG_0132.jpg"><img class=" gallery-image" src="images_sized/2016-04-29-IMG_0132.jpg" alt="Foto" data-src="/images_sized/2016-04-29-IMG_0132.jpg"></a><a class="span swipebox" href="images_cached/2016-03-22-IMG_0131.jpg"><img class=" gallery-image" src="images_sized/2016-03-22-IMG_0131.jpg" alt="Foto" data-src="/images_sized/2016-03-22-IMG_0131.jpg"></a><a class="span swipebox" href="images_cached/2016-03-06-IMG_0098.jpg"><img class=" gallery-image" src="images_sized/2016-03-06-IMG_0098.jpg" alt="Foto" data-src="/images_sized/2016-03-06-IMG_0098.jpg"></a><a class="span swipebox" href="images_cached/2016-02-29-IMG_0462.jpg"><img class=" gallery-image" src="images_sized/2016-02-29-IMG_0462.jpg" alt="Foto" data-src="/images_sized/2016-02-29-IMG_0462.jpg"></a><a class="span swipebox" href="images_cached/2016-02-28-IMG_0421.jpg"><img class=" gallery-image" src="images_sized/2016-02-28-IMG_0421.jpg" alt="Foto" data-src="/images_sized/2016-02-28-IMG_0421.jpg"></a><a class="span swipebox" href="images_cached/2016-01-01-IMG_0004.jpg"><img class=" gallery-image" src="images_sized/2016-01-01-IMG_0004.jpg" alt="Foto" data-src="/images_sized/2016-01-01-IMG_0004.jpg"></a><a class="span swipebox" href="images_cached/2015-12-25-IMG_0013.jpg"><img class=" gallery-image" src="images_sized/2015-12-25-IMG_0013.jpg" alt="Foto" data-src="/images_sized/2015-12-25-IMG_0013.jpg"></a><a class="span swipebox" href="images_cached/2015-12-13-IMG_2435.jpg"><img class=" gallery-image" src="images_sized/2015-12-13-IMG_2435.jpg" alt="Foto" data-src="/images_sized/2015-12-13-IMG_2435.jpg"></a><a class="span swipebox" href="images_cached/2015-12-13-IMG_0007.jpg"><img class=" gallery-image" src="images_sized/2015-12-13-IMG_0007.jpg" alt="Foto" data-src="/images_sized/2015-12-13-IMG_0007.jpg"></a><a class="span swipebox" href="images_cached/2015-12-05-IMG_2349.jpg"><img class=" gallery-image" src="images_sized/2015-12-05-IMG_2349.jpg" alt="Foto" data-src="/images_sized/2015-12-05-IMG_2349.jpg"></a><a class="span swipebox" href="images_cached/2015-12-05-IMG_2342.jpg"><img class=" gallery-image" src="images_sized/2015-12-05-IMG_2342.jpg" alt="Foto" data-src="/images_sized/2015-12-05-IMG_2342.jpg"></a><a class="span swipebox" href="images_cached/2015-11-29-IMG_0006.jpg"><img class=" gallery-image" src="images_sized/2015-11-29-IMG_0006.jpg" alt="Foto" data-src="/images_sized/2015-11-29-IMG_0006.jpg"></a><a class="span swipebox" href="images_cached/2015-11-29-IMG_0002-3.jpg"><img class=" gallery-image" src="images_sized/2015-11-29-IMG_0002-3.jpg" alt="Foto" data-src="/images_sized/2015-11-29-IMG_0002-3.jpg"></a><a class="span swipebox" href="images_cached/2015-11-22-IMG_0001.jpg"><img class=" gallery-image" src="images_sized/2015-11-22-IMG_0001.jpg" alt="Foto" data-src="/images_sized/2015-11-22-IMG_0001.jpg"></a><a class="span swipebox" href="images_cached/2015-11-01-IMG_2130.jpg"><img class=" gallery-image" src="images_sized/2015-11-01-IMG_2130.jpg" alt="Foto" data-src="/images_sized/2015-11-01-IMG_2130.jpg"></a><a class="span swipebox" href="images_cached/2015-10-29-_MG_2106.jpg"><img class=" gallery-image" src="images_sized/2015-10-29-_MG_2106.jpg" alt="Foto" data-src="/images_sized/2015-10-29-_MG_2106.jpg"></a><a class="span swipebox" href="images_cached/2015-10-27-_MG_2056.jpg"><img class=" gallery-image" src="images_sized/2015-10-27-_MG_2056.jpg" alt="Foto" data-src="/images_sized/2015-10-27-_MG_2056.jpg"></a><a class="span swipebox" href="images_cached/2015-10-26-_MG_1984.jpg"><img class=" gallery-image" src="images_sized/2015-10-26-_MG_1984.jpg" alt="Foto" data-src="/images_sized/2015-10-26-_MG_1984.jpg"></a><a class="span swipebox" href="images_cached/2015-10-26-_MG_1981.jpg"><img class=" gallery-image" src="images_sized/2015-10-26-_MG_1981.jpg" alt="Foto" data-src="/images_sized/2015-10-26-_MG_1981.jpg"></a><a class="span swipebox" href="images_cached/2015-10-26-_MG_1964.jpg"><img class=" gallery-image" src="images_sized/2015-10-26-_MG_1964.jpg" alt="Foto" data-src="/images_sized/2015-10-26-_MG_1964.jpg"></a><a class="span swipebox" href="images_cached/2015-10-19-_MG_1853.jpg"><img class=" gallery-image" src="images_sized/2015-10-19-_MG_1853.jpg" alt="Foto" data-src="/images_sized/2015-10-19-_MG_1853.jpg"></a><a class="span swipebox" href="images_cached/2015-10-15-_MG_1839.jpg"><img class=" gallery-image" src="images_sized/2015-10-15-_MG_1839.jpg" alt="Foto" data-src="/images_sized/2015-10-15-_MG_1839.jpg"></a><a class="span swipebox" href="images_cached/2015-10-14-_MG_1834.jpg"><img class=" gallery-image" src="images_sized/2015-10-14-_MG_1834.jpg" alt="Foto" data-src="/images_sized/2015-10-14-_MG_1834.jpg"></a><a class="span swipebox" href="images_cached/2015-10-12-_MG_1819.jpg"><img class=" gallery-image" src="images_sized/2015-10-12-_MG_1819.jpg" alt="Foto" data-src="/images_sized/2015-10-12-_MG_1819.jpg"></a><a class="span swipebox" href="images_cached/2015-10-10-_MG_1762.jpg"><img class=" gallery-image" src="images_sized/2015-10-10-_MG_1762.jpg" alt="Foto" data-src="/images_sized/2015-10-10-_MG_1762.jpg"></a><a class="span swipebox" href="images_cached/2015-10-07-_MG_1695.jpg"><img class=" gallery-image" src="images_sized/2015-10-07-_MG_1695.jpg" alt="Foto" data-src="/images_sized/2015-10-07-_MG_1695.jpg"></a><a class="span swipebox" href="images_cached/2015-10-02-_MG_1690.jpg"><img class=" gallery-image" src="images_sized/2015-10-02-_MG_1690.jpg" alt="Foto" data-src="/images_sized/2015-10-02-_MG_1690.jpg"></a><a class="span swipebox" href="images_cached/2015-10-01-_MG_1678.jpg"><img class=" gallery-image" src="images_sized/2015-10-01-_MG_1678.jpg" alt="Foto" data-src="/images_sized/2015-10-01-_MG_1678.jpg"></a><a class="span swipebox" href="images_cached/2015-08-26-_MG_1433.jpg"><img class=" gallery-image" src="images_sized/2015-08-26-_MG_1433.jpg" alt="Foto" data-src="/images_sized/2015-08-26-_MG_1433.jpg"></a><a class="span swipebox" href="images_cached/2015-08-23-_MG_1388.jpg"><img class=" gallery-image" src="images_sized/2015-08-23-_MG_1388.jpg" alt="Foto" data-src="/images_sized/2015-08-23-_MG_1388.jpg"></a><a class="span swipebox" href="images_cached/2015-08-23-_MG_1365.jpg"><img class=" gallery-image" src="images_sized/2015-08-23-_MG_1365.jpg" alt="Foto" data-src="/images_sized/2015-08-23-_MG_1365.jpg"></a><a class="span swipebox" href="images_cached/2015-08-23-_MG_1352.jpg"><img class=" gallery-image" src="images_sized/2015-08-23-_MG_1352.jpg" alt="Foto" data-src="/images_sized/2015-08-23-_MG_1352.jpg"></a><a class="span swipebox" href="images_cached/2015-08-23-_MG_1340.jpg"><img class=" gallery-image" src="images_sized/2015-08-23-_MG_1340.jpg" alt="Foto" data-src="/images_sized/2015-08-23-_MG_1340.jpg"></a><a class="span swipebox" href="images_cached/2015-03-28-_MG_1054.jpg"><img class=" gallery-image" src="images_sized/2015-03-28-_MG_1054.jpg" alt="Foto" data-src="/images_sized/2015-03-28-_MG_1054.jpg"></a><a class="span swipebox" href="images_cached/2015-03-21-_MG_1048.jpg"><img class=" gallery-image" src="images_sized/2015-03-21-_MG_1048.jpg" alt="Foto" data-src="/images_sized/2015-03-21-_MG_1048.jpg"></a><a class="span swipebox" href="images_cached/2015-03-21-_MG_1041.jpg"><img class=" gallery-image" src="images_sized/2015-03-21-_MG_1041.jpg" alt="Foto" data-src="/images_sized/2015-03-21-_MG_1041.jpg"></a><a class="span swipebox" href="images_cached/2015-03-21-_MG_1039.jpg"><img class=" gallery-image" src="images_sized/2015-03-21-_MG_1039.jpg" alt="Foto" data-src="/images_sized/2015-03-21-_MG_1039.jpg"></a><a class="span swipebox" href="images_cached/2015-01-25-_MG_0858.jpg"><img class=" gallery-image" src="images_sized/2015-01-25-_MG_0858.jpg" alt="Foto" data-src="/images_sized/2015-01-25-_MG_0858.jpg"></a><a class="span swipebox" href="images_cached/2015-01-12-_MG_0839.jpg"><img class=" gallery-image" src="images_sized/2015-01-12-_MG_0839.jpg" alt="Foto" data-src="/images_sized/2015-01-12-_MG_0839.jpg"></a><a class="span swipebox" href="images_cached/2015-01-10-_MG_0769.jpg"><img class=" gallery-image" src="images_sized/2015-01-10-_MG_0769.jpg" alt="Foto" data-src="/images_sized/2015-01-10-_MG_0769.jpg"></a>				</div>
-			</div>
-		</div>
-		<div class="content-footer">
-			<div  class="center-align-large">
-				<p>
-					Je kunt meer foto's vinden op <a target="_blank" href="https://instagram.com/svanderpol75">Instagram</a>.
-				</p>
-				<p>
-					Leerkracht tools: <a href="tafelvierkantjes/index.html">Tafelvierkantjes</a> | <a href="plattegrond/index.html">Plattegrond</a>
-				</p>
-			</div>
-		</div>
-		<footer>
-			<div class="center-align-large">
-				<p>&copy; 2026 Robert van den Baar | Alle rechten voorbehouden | <a href="https://vandenbaar.nl">van den Baar familie-website</a></p>
-			</div>
-		</footer>
-		<div id="baarslide_overlay">
-			<div id="baarslide_container">
-				<div id="baarslide_navigation">
-					<div id="baarslide_navigation_info" title="Information">
-						<img alt="info" src="https://www.vandenbaar.nl/svg/info.svg" width="30" height="30">
-					</div>
-					<div id="baarslide_navigation_prev" title="Previous image">
-						<img alt="previous" src="https://www.vandenbaar.nl/svg/prev.svg" width="30" height="30">
-					</div>
-					<div id="baarslide_navigation_next" title="Next image">
-						<img alt="next" src="https://www.vandenbaar.nl/svg/next.svg" width="30" height="30">
-					</div>
-					<div id="baarslide_navigation_close" title="Close">
-						<img alt="close" src="https://www.vandenbaar.nl/svg/close.svg" width="30" height="30">
-					</div>
-				</div>
-				<div id="baarslide_slider">
+        #fotografie {
+            border-bottom: 1px solid #222;
+        }
 
-				</div>
-			</div>
-		</div>
-	</body>
+        section h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        section p.subtitle {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-link {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 4px;
+            background-color: #1a1a1a;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .gallery-link:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #555;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            section {
+                padding-top: 160px;
+            }
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <span>Saskia van den Baar</span>
+            </a>
+        </div>
+    </header>
+
+    <section id="fotografie">
+        <h2>Fotografie</h2>
+        <div class="portfolio-grid" id="grid-fotografie">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Saskia van den Baar</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+
+    <script>
+        const username = "robertvandenbaar";
+        const repo = "saskia.vandenbaar";
+        
+        const fotoFolder = "images_cached";
+
+        const imageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+
+        async function fetchAndBuildGallery(folderPath, targetGridId, relativeHrefPrefix) {
+            const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${folderPath}`;
+            const gridContainer = document.getElementById(targetGridId);
+            
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error(`Kan map ${folderPath} niet laden.`);
+                
+                const files = await response.json();
+                
+                files.reverse();
+
+                files.forEach(file => {
+                    const fileExtension = file.name.split('.').pop().toLowerCase();
+                    
+                    if (file.type === 'file' && imageExtensions.includes(fileExtension)) {
+                        const fileUrl = `${relativeHrefPrefix}${file.name}`;
+                        
+                        gridContainer.innerHTML += `
+                            <a class="gallery-link" href="${fileUrl}">
+                                <img class="gallery-image" src="${fileUrl}" alt="Portfolio item" loading="lazy" />
+                            </a>
+                        `;
+                    }
+                });
+
+            } catch (error) {
+                
+                gridContainer.innerHTML = '<p style="color: #666;">Afbeeldingen konden niet worden geladen.</p>';
+            }
+        }
+
+        async function initPage() {
+            await fetchAndBuildGallery(fotoFolder, 'grid-fotografie', './foto_cached/');
+            baguetteBox.run('#grid-fotografie', { animation: 'slideIn', noScrollbars: true });
+        }
+
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+
+</body>
 </html>
