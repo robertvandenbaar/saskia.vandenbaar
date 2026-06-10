@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -50,35 +49,10 @@
             color: #fff;
         }
 
-        .brand img {
-            width: 35px;
-            height: 35px;
-            object-fit: contain;
-        }
-
         .brand span {
             font-size: 1.2rem;
             font-weight: 600;
             letter-spacing: 0.5px;
-        }
-
-        nav divalinks {
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-link {
-            color: #aaa;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-link:hover {
-            color: #fff;
         }
 
         section {
@@ -88,22 +62,12 @@
             min-height: 80vh;
         }
 
-        #fotografie {
-            border-bottom: 1px solid #222;
-        }
-
         section h2 {
             font-size: 2rem;
             font-weight: 400;
             letter-spacing: 1px;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        section p.subtitle {
-            color: #888;
             margin-bottom: 30px;
-            font-size: 1rem;
+            color: #fff;
         }
 
         .portfolio-grid {
@@ -132,7 +96,6 @@
             object-fit: cover;
             border: none;
             display: block;
-            transition: opacity 0.3s ease;
         }
 
         footer {
@@ -169,8 +132,11 @@
         </div>
     </header>
 
-    <section id="fotografie">
-        <div class="portfolio-grid" id="grid-fotografie">
+    <!-- Sectie hernoemd naar haakwerk -->
+    <section id="haakwerk">
+        <h2>Mijn haakwerk</h2>
+        <div class="portfolio-grid" id="grid-haakwerk">
+            <!-- Wordt razendsnel gevuld door JS -->
         </div>
     </section>
 
@@ -183,9 +149,7 @@
     <script>
         const username = "robertvandenbaar";
         const repo = "saskia.vandenbaar";
-        
         const fotoFolder = "images_cached";
-
         const imageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
 
         async function fetchAndBuildGallery(folderPath, targetGridId, relativeHrefPrefix) {
@@ -197,8 +161,10 @@
                 if (!response.ok) throw new Error(`Kan map ${folderPath} niet laden.`);
                 
                 const files = await response.json();
-                
                 files.reverse();
+
+                // Sla de HTML tijdelijk op in het geheugen in plaats van direct te renderen
+                let galleryHtml = '';
 
                 files.forEach(file => {
                     const fileExtension = file.name.split('.').pop().toLowerCase();
@@ -206,23 +172,30 @@
                     if (file.type === 'file' && imageExtensions.includes(fileExtension)) {
                         const fileUrl = `${relativeHrefPrefix}${file.name}`;
                         
-                        gridContainer.innerHTML += `
+                        // We plakken de code achter elkaar in de variabele
+                        galleryHtml += `
                             <a class="gallery-link" href="${fileUrl}">
-                                <img class="gallery-image" src="${fileUrl}" alt="Portfolio item" loading="lazy" />
+                                <img class="gallery-image" src="${fileUrl}" alt="Gehaakt handwerk" loading="lazy" width="300" height="300" />
                             </a>
                         `;
                     }
                 });
 
+                // Pas aan het einde van de rit dwingen we de browser 1x te renderen
+                gridContainer.innerHTML = galleryHtml;
+
+                // Activeer direct daarna baguetteBox
+                baguetteBox.run(`#${targetGridId}`, { animation: 'slideIn', noScrollbars: true });
+
             } catch (error) {
-                
+                console.error(error);
                 gridContainer.innerHTML = '<p style="color: #666;">Afbeeldingen konden niet worden geladen.</p>';
             }
         }
 
         async function initPage() {
-            await fetchAndBuildGallery(fotoFolder, 'grid-fotografie', './images_cached/');
-            baguetteBox.run('#grid-fotografie', { animation: 'slideIn', noScrollbars: true });
+            // Let op: target aangepast naar 'grid-haakwerk'
+            await fetchAndBuildGallery(fotoFolder, 'grid-haakwerk', './images_cached/');
         }
 
         document.addEventListener('DOMContentLoaded', initPage);
