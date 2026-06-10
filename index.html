@@ -35,39 +35,40 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 15px 20px;
+            padding: 20px 20px; /* Iets meer ademruimte bovenin */
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
             text-decoration: none;
             color: #fff;
         }
 
+        /* HIER IS DE BREAK: Haar naam is nu de baas op de pagina */
         .brand span {
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-size: 1.75rem; /* Lekker groot */
+            font-weight: 700;   /* Dikgedrukt */
+            letter-spacing: -0.5px;
+            text-transform: uppercase; /* Volledig in hoofdletters net als bij Robert */
         }
 
         section {
-            padding: 120px 20px 60px 20px; 
+            padding: 140px 20px 60px 20px; /* Ruimte bovenin aangepast aan de grotere header */
             max-width: 1200px;
             margin: 0 auto;
             min-height: 80vh;
         }
 
+        /* De sectietitel is nu kleiner en subtieler, net als de bloktitels uit je oude stijl */
         section h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-            color: #fff;
+            font-size: 1.25rem; 
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+            color: #ddd;
+            text-transform: none;
         }
 
         .portfolio-grid {
@@ -113,7 +114,10 @@
                 text-align: center;
             }
             section {
-                padding-top: 160px;
+                padding-top: 180px;
+            }
+            .brand span {
+                font-size: 1.4rem; /* Iets bescheidener op mobiel */
             }
             .portfolio-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -132,7 +136,6 @@
         </div>
     </header>
 
-    <!-- Sectie hernoemd naar haakwerk -->
     <section id="haakwerk">
         <h2>Mijn haakwerk</h2>
         <div class="portfolio-grid" id="grid-haakwerk">
@@ -163,7 +166,6 @@
                 const files = await response.json();
                 files.reverse();
 
-                // Sla de HTML tijdelijk op in het geheugen in plaats van direct te renderen
                 let galleryHtml = '';
 
                 files.forEach(file => {
@@ -172,7 +174,6 @@
                     if (file.type === 'file' && imageExtensions.includes(fileExtension)) {
                         const fileUrl = `${relativeHrefPrefix}${file.name}`;
                         
-                        // We plakken de code achter elkaar in de variabele
                         galleryHtml += `
                             <a class="gallery-link" href="${fileUrl}">
                                 <img class="gallery-image" src="${fileUrl}" alt="Gehaakt handwerk" loading="lazy" width="300" height="300" />
@@ -181,10 +182,7 @@
                     }
                 });
 
-                // Pas aan het einde van de rit dwingen we de browser 1x te renderen
                 gridContainer.innerHTML = galleryHtml;
-
-                // Activeer direct daarna baguetteBox
                 baguetteBox.run(`#${targetGridId}`, { animation: 'slideIn', noScrollbars: true });
 
             } catch (error) {
@@ -194,7 +192,6 @@
         }
 
         async function initPage() {
-            // Let op: target aangepast naar 'grid-haakwerk'
             await fetchAndBuildGallery(fotoFolder, 'grid-haakwerk', './images_cached/');
         }
 
