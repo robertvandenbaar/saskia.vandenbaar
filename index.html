@@ -108,11 +108,12 @@
         @media (max-width: 600px) {
             .nav-container {
                 flex-direction: column;
-                gap: 15px;
-                text-align: center;
+                gap: 10px;
+                align-items: flex-start;
+                text-align: left;
             }
             section {
-                padding-top: 180px;
+                padding-top: 135px;
             }
             .brand span {
                 font-size: 1.4rem; 
@@ -182,7 +183,6 @@
                 baguetteBox.run(`#${targetGridId}`, { animation: 'slideIn', noScrollbars: true });
 
             } catch (error) {
-                console.error(error);
                 gridContainer.innerHTML = '<p style="color: #666;">Afbeeldingen konden niet worden geladen.</p>';
             }
         }
